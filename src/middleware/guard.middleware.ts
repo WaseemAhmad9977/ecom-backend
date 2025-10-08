@@ -26,8 +26,10 @@ const expireSession = (res:Response)=>{
 
 export const adminGuard =Exc(async (req:AuthInterface,res:Response,next:NextFunction)=>{
      const {accessToken}=req.cookies
+     console.log(accessToken)
      if(!accessToken)
         return expireSession(res)
+      
      
      const payload:any=await jwt.verify(accessToken,process.env.JWT_SECRET as string)
      

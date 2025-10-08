@@ -58,14 +58,17 @@ export const login = Exc(async (req: Request, res: Response) => {
     httpOnly: true,
     sameSite: process.env.NODE_ENV === 'dev' ? 'lax' : 'none',
   });
-
+  
+  
   res.json({ message: 'Login success', role: user.role });
 });
 
 
+
+
 export const logout = Exc((req: Request, res: Response) => {
-  res.cookie('accessToken', null, { maxAge: 0, domain: process.env.DOMAIN, secure: true, httpOnly: true, sameSite: 'none' });
-  res.cookie('refreshToken', null, { maxAge: 0, domain: process.env.DOMAIN, secure: true, httpOnly: true, sameSite: 'none' });
+  res.cookie('accessToken', null, { maxAge: 0, domain: process.env.DOMAIN, secure: true, httpOnly: true, sameSite: process.env.NODE_ENV === 'dev' ? 'lax' : 'none'});
+  res.cookie('refreshToken', null, { maxAge: 0, domain: process.env.DOMAIN, secure: true, httpOnly: true, sameSite: process.env.NODE_ENV === 'dev' ? 'lax' : 'none'});
   res.json({ message: 'Logout success' });
 });
 
