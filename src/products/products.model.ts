@@ -1,0 +1,30 @@
+import { Schema, model } from 'mongoose'
+
+const productSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true
+  },
+  description: {
+    type: String,
+    trim: true,
+    lowercase: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  discount: {
+    type: Number,
+    default: 0
+  },
+  modelUrl: {
+    type: String,
+    required: true
+  }
+}, { timestamps: true })
+
+const ProductModel = model('Product', productSchema)
+export default ProductModel

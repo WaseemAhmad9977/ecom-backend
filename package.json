@@ -1,0 +1,43 @@
+{
+  "name": "ebook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "feature": "ts-node services/feature/index.ts",
+    "start": "node dist/index.js",
+    "create-user": "node services/signup.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "chalk": "^5.6.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.1",
+    "inquirer": "^12.9.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.3",
+    "node-color-log": "^12.0.1",
+    "react-icons": "^5.5.0",
+    "swr": "^2.3.6",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.8.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
