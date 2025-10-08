@@ -17,6 +17,8 @@ const getToken = (user: UserInterface) => {
     phone: user.phone,
     role: user.role,
   };
+  
+  console.log("check payload "+ payload)
 
   const accessToken = jwt.sign(payload, process.env.JWT_SECRET as string, { expiresIn: '15m' });
   const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET as string, { expiresIn: '7d' });
@@ -41,6 +43,8 @@ export const login = Exc(async (req: Request, res: Response) => {
   if (!isLogin) return res.status(401).send('Incorrect password');
 
   const { refreshToken, accessToken } = getToken(user);
+
+  console.log("checking"+refreshToken,accessToken)
 
  
   res.cookie('accessToken', accessToken, {

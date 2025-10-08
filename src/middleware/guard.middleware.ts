@@ -26,7 +26,7 @@ const expireSession = (res:Response)=>{
 
 export const adminGuard =Exc(async (req:AuthInterface,res:Response,next:NextFunction)=>{
      const {accessToken}=req.cookies
-     console.log(accessToken)
+     
      if(!accessToken)
         return expireSession(res)
       
