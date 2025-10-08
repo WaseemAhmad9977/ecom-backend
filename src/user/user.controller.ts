@@ -67,13 +67,13 @@ export const login = Exc(async (req:Request,res:Response)=>{
 
   res.cookie('accessToken', accessToken, {
 		maxAge: FOURTEEN_MINUTE,
-		domain: process.env.NODE_ENV === "dev" ? "localhost" : process.env.DOMAIN,
+		domain: process.env.NODE_ENV === "dev" ?"localhost":process.env.DOMAIN,
 		secure: process.env.NODE_ENV === "dev" ? false : true,
 		httpOnly: true
 	})
 	res.cookie('refreshToken', refreshToken, {
 		maxAge: SIX_DAYS,
-		domain: process.env.NODE_ENV === "dev" ? "localhost" : process.env.DOMAIN,
+		domain: process.env.NODE_ENV === "dev" ? "localhost":process.env.DOMAIN,
 		secure: process.env.NODE_ENV === "dev" ? false : true,
 		httpOnly: true
 	})
